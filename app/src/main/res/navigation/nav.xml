@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.gokhanzopcuk.countryapp.ui.FeedFragment"
+        android:label="fragment_feed"
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/feedCountryGecis"
+            app:destination="@id/countryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/countryFragment"
+        android:name="com.gokhanzopcuk.countryapp.ui.CountryFragment"
+        android:label="fragment_country"
+        tools:layout="@layout/fragment_country" >
+        <action
+            android:id="@+id/countryFeedGecis"
+            app:destination="@id/feedFragment" />
+        <argument
+            android:name="countryuuid"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="country"
+            app:argType="com.gokhanzopcuk.countryapp.model.Country" />
+    </fragment>
+</navigation>
